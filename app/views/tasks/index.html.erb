@@ -8,9 +8,16 @@
       <% else %>
         <i class="far fa-square"></i>
       <% end  %>
-        <%= link_to "#{task.title}", task_path(task.id) %>
-  </li>
+      <%= link_to "#{task.title}", task_path(task.id) %>
+      <i class="far fa-trash-alt"></i>
+      <%= link_to task_path(task), method: :delete,
+        data: { confirm: "Are you sure?" } do %>
+          <i class="far fa-trash-alt"></i>
+      <% end %>
+    </li>
   <% end %>
 </ul>
 
-<%= link_to 'Add a new task', tasks_new_path %>
+<%= link_to 'Add a new task', task_new_path %>
+
+
